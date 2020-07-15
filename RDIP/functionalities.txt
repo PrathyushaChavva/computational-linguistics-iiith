@@ -1,1 +1,10 @@
-
+By clicking on the experiment lab,we have a dropdown for the selection of the language where we can find english and hindi as options.
+we can see the jumbled words there.
+the words are clickable buttons.
+Now we have to form the form the correct declarative or interrogative sentence with the jumbled words.
+So if we click any of the word and that word get removed from the jumbled sentence.
+And there is another message comes i.e,, formed sentence.
+As we keep clicking the words,the words getting added to the previously chosen words in the same order and the words we chosen get removing from the original jumbled sentence.
+there is another clickable button to check the correctness of the sentence.
+It tells whether the formed sentence is correct answer or wrong answer
+If we want to see the correct answer,there is another button,which displays the correct answer.
