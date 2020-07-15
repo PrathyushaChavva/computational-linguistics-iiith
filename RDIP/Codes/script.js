@@ -18,10 +18,11 @@ var hin5 = ["बिल्लियों को मारकर कुत्त�
 var hin6 = ["एक लाल किताब वहाँ है","एक लाल किताब है वहाँ","वहाँ है एक लाल किताब","है वहाँ एक लाल किताब"];
 var hin7 = ["एक बड़ी सी किताब वहाँ है","एक बड़ी सी किताब है वहाँ","बड़ी सी एक किताब वहाँ है","बड़ी सी एक किताब है वहाँ","वहाँ है एक बड़ी सी किताब","वहाँ है बड़ी सी एक किताब","है वहाँ एक बड़ी सी किताब","है वहाँ बड़ी सी एक किताब"];
 
-
 var heading = document.getElementById('subhead');
 var desc = document.getElementById('description');
 var desc2 = document.getElementById('description2');
+var select=document.getElementById('selection');
+var seldesc=document.getElementById('selectiondesc');
 
 function introshow(){
 	heading.innerHTML = "Introduction"
@@ -38,11 +39,31 @@ function objectiveshow(){
 	desc.innerHTML = "<br><hr><br><br>The objective of this experiment is to know how to form logically correct sentences from the given words.<br>";
 	desc2.innerHTML = "<br><hr>";
 }
-function experimentshow(){
+function dropdownchange() {
+    var x=document.getElementById('lang').value;
+    if(x=='select') {
+    seldesc.innerHTML="";
+    desc.innerHTML="";
+               }
+     if(x=='english')
+     {
+     seldesc.innerHTML="<br><br><b>Form a sentence(Declarative or Interrogative or any other type)from the given words</b>"
+      desc.style.color="blue";
+      desc.inner.HTML="<center><i>(select the buttons in proper order)</i></center>";
+     }
+     if(x=='hindi')
+     {
+     seldesc.innerHTML="<br><br><b>Form a sentence(Declarative or Interrogative or any other type)from the given words</b>"
+      desc.style.color="blue";
+      desc.inner.HTML="<center><i>(select the buttons in proper order)</i></center>";
+     }
+     }
+     function experimentshow(){
 	heading.innerHTML = "Experiment";
+	select.innerHTML = "<select id='lang' onchange = 'dropdownchange()'><option value='select'>---Select Language---</option><option value='english'>English</option><option value='hindi'>Hindi</option></select>";
 	desc.innerHTML = "";
 	desc2.innerHTML = "";
-}
+     }
 
 function quizzesshow(){
 	heading.innerHTML = "Quizzes";
