@@ -26,11 +26,11 @@ var desc4 = document.getElementById('description4');
 var sentence = document.getElementById('sentence');
 var reform = document.getElementById('reformbtnpara');
 var correctness = document.getElementById('correctnesspara')
-var j,btncount;
+var res = document.getElementById('result');
+var j,btncount,r;
 var finalsentence ="";
 var clickcount = 0;
-
-
+var x;
 function introshow(){
 	heading.innerHTML = "Introduction"
 	desc.innerHTML = "A sentence can become more complex, if more than one verb is present or by joining two sentences or words using conjunctions or by some other methods."
@@ -44,6 +44,7 @@ function introshow(){
 	sentence.innerHTML = "";
 	reform.innerHTML = "";
 	correctness.innerHTML = "";
+	res.innerHTML = "";
 }
 function theoryshow(){
 	heading.innerHTML = "Theory";
@@ -59,6 +60,7 @@ function theoryshow(){
 	desc4.style.textAlign = "left";
 	reform.innerHTML = "";
 	correctness.innerHTML = "";
+	res.innerHTML = "";
 }
 function objectiveshow(){
 	heading.innerHTML = "Objective";
@@ -73,6 +75,7 @@ function objectiveshow(){
 	sentence.innerHTML = "";
 	reform.innerHTML = "";
 	correctness.innerHTML = "";
+	res.innerHTML = "";
 }
 function insiderandomizer(jumbled){
 	var jumble = jumbled.split(" ");
@@ -86,6 +89,20 @@ function insiderandomizer(jumbled){
 	}
 	return jumble;
 }
+function correctioncheck(){
+	var fs = finalsentence.trim();
+	var result;
+	if(x=='english')
+		result = eng[r].includes(fs);
+	else if(x == 'hindi')
+		result = hin[r].includes(fs);
+
+	if(result==true)
+		res.innerHTML = "<center><font color = 'green'>Right Answer!!!</font></center>";
+	else
+		res.innerHTML = "<center><font color = 'red'>Wrong Answer!!!</font></center>";
+
+}
 function reformsentence(){
 	for(i=0;i<=j.length-1;i++){
 		document.getElementById('btn'+i).style.display = "";
@@ -95,6 +112,8 @@ function reformsentence(){
 	reform.innerHTML = "";
 	desc4.innerHTML = "";
 	correctness.innerHTML = "";
+	clickcount = 0;
+	res.innerHTML = "";
 }
 
 function formsentence(id,value){
@@ -107,12 +126,12 @@ function formsentence(id,value){
 		reform.innerHTML = "<center><button id='refornbtn' onclick='reformsentence()'>Re-form the sentence</button></center>"
 		clickcount++;
 	if(btncount==clickcount){
-		correctness.innerHTML = "<center><button id='correctnessbtn'>Check the correctness of this sentence</button></center>"
+		correctness.innerHTML = "<center><button id='correctnessbtn' onclick='correctioncheck()'>Check the correctness of this sentence</button></center>"
 	}
 }
 
 function dropdownchange() {
-    var x=document.getElementById('lang').value;
+     x=document.getElementById('lang').value;
     if(x=='select') {
     clickcount = 0;
 		btncount = 0;
@@ -124,6 +143,7 @@ function dropdownchange() {
 		sentence.innerHTML = "";
 		reform.innerHTML = ""
 		correctness.innerHTML = "";
+		res.innerHTML = "";
                }
     if(x == 'english'){
     reform.innerHTML = "";
@@ -131,10 +151,11 @@ function dropdownchange() {
     correctness.innerHTML = "";
 		desc4.innerHTML = "";
 		finalsentence = "";
+		res.innerHTML = "";
 		seldesc.innerHTML = "<br><br><b>Form a sentence (Declarative or Interrogative or any other type) from the given words</b>";
 		desc3.style.color = "blue";
 		desc3.innerHTML = "<center><i>(select the buttons in proper order)</i></center>"
-		var r = Math.floor(Math.random()*9);
+		 r = Math.floor(Math.random()*9);
 		var jumbled = eng[r][0];
 		j = insiderandomizer(jumbled);
 		desc2.style.textAlign = "center";
@@ -156,10 +177,11 @@ function dropdownchange() {
 	correctness.innerHTML = "";
 		desc4.innerHTML = "";
 		finalsentence = "";
+		res.innerHTML = "";
 		seldesc.innerHTML = "<br><br><b>Form a sentence (Declarative or Interrogative or any other type) from the given words</b>";
 		desc3.style.color = "blue";
 		desc3.innerHTML = "<center><i>(select the buttons in proper order)</i></center>"
-		var r = Math.floor(Math.random()*6);
+		 r = Math.floor(Math.random()*6);
 		var jumbled = hin[r][0];
 		j = insiderandomizer(jumbled);
 		desc2.style.textAlign = "center";
@@ -188,6 +210,7 @@ function dropdownchange() {
 	sentence.innerHTML = "";
 	reform.innerHTML = "";
 	correctness.innerHTML = "";
+	res.innerHTML = "";
      }
 
 function quizzesshow(){
@@ -203,6 +226,7 @@ desc3.innerHTML = "";
 	sentence.innerHTML = "";
 	reform.innerHTML = "";
 	correctness.innerHTML = "";
+	res.innerHTML = "";
 }
 function procedureshow(){
 	heading.innerHTML = "Procedure";
@@ -218,4 +242,5 @@ desc3.innerHTML = "";
 	desc4.style.textAlign = "left";
 	reform.innerHTML = "";
 	correctness.innerHTML = "";
+	res.innerHTML = "";
 	}
