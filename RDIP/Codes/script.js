@@ -98,19 +98,17 @@ function insiderandomizer(jumbled){
 	return jumble;
 }
 function getcorrecttoggle(){
-	if(correctanswers.style.display="none"){
 		correctanswers.style.display=""
 		res.innerHTML = "<center><font color = 'red'>Wrong Answer!!!</font><br><button id='showansbtn' onclick='hidecorrect()'>Hide correct sentence</button></center>";
-	}
-
 }
 function hidecorrect(){
 	res.innerHTML = "<center><font color = 'red'>Wrong Answer!!!</font><br><button id='showansbtn' onclick='getcorrecttoggle()'>Get answers</button></center>";
 	correctanswers.style.display="none";
-}
+	}
 function getcorrect(){
 	answers="";
 	var totalanswers = 0;
+	correctanswers.innerHTML = "";
 	if (x=='english'){
 		totalanswers = eng[r].length-1;
 		res.innerHTML = "<center><font color = 'red'>Wrong Answer!!!</font><br><button id='showansbtn' onclick='hidecorrect()'>Hide correct sentence</button></center>";
@@ -118,6 +116,7 @@ function getcorrect(){
 			answers += "<center>"+eng[r][i]+"<br></center>"
 		}
 		correctanswers.innerHTML = answers;
+		correctanswers.style.display="";
 	}
 	else if(x=='hindi'){
 		totalanswers = hin[r].length-1;
@@ -126,6 +125,7 @@ function getcorrect(){
 			answers += "<center>"+hin[r][i]+"<br></center>"
 		}
 		correctanswers.innerHTML = answers;
+		correctanswers.style.display="";
 	}
 }
 function correctioncheck(){
@@ -172,6 +172,7 @@ function formsentence(id,value){
 }
 
 function dropdownchange() {
+x = "";
      x=document.getElementById('lang').value;
     if(x=='select') {
     answers="";
